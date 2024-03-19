@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
+const Empresa = require('./Empresa');
 
 const Categoria = sequelize.define('categoria', {
     nombre: {
@@ -11,5 +12,7 @@ const Categoria = sequelize.define('categoria', {
         allowNull: false
     },
 });
+Empresa.hasMany(Categoria);
+Categoria.belongsTo(Empresa);
 
 module.exports = Categoria;
