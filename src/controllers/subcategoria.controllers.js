@@ -1,8 +1,9 @@
 const catchError = require('../utils/catchError');
 const Subcategoria = require('../models/Subcategoria');
+const Descript = require('../models/Descript');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Subcategoria.findAll();
+    const results = await Subcategoria.findAll({include:[Descript]});
     return res.json(results);
 });
 
