@@ -4,7 +4,7 @@ const Producto = require('../models/Producto');
 const Subcategoria = require('../models/Subcategoria');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Categoria.findAll({include:[Subcategoria, Producto]});
+    const results = await Categoria.findAll({include:[{Subcategoria, Producto}]});
     return res.json(results);
 });
 
