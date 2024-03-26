@@ -1,9 +1,10 @@
 const catchError = require('../utils/catchError');
 const Categoria = require('../models/Categoria');
 const Producto = require('../models/Producto');
+const Subcategoria = require('../models/Subcategoria');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Categoria.findAll({include:[Producto]});
+    const results = await Categoria.findAll({include:[Subcategoria]});
     return res.json(results);
 });
 
